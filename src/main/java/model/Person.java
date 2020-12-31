@@ -1,15 +1,22 @@
 package model;
 
 public class Person {
-    final int personId;
+    final int personId ;
     String firstName;
     String LastName;
+
+ 
 
     public Person(int personId, String firstName, String lastName) {
         this.personId = personId;
         this.firstName = firstName;
-        LastName = lastName;
+        this.LastName = lastName;
     }
+
+    public Person() {
+        personId = 0;
+    }
+
 
     public int getPersonId() {
         return personId;
