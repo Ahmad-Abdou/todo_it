@@ -2,7 +2,10 @@ package se.lexicon.AhmadAbdou;
 
 import data.People;
 import data.PersonSequencer;
+import data.TodoItems;
 import model.Person;
+
+import java.util.Arrays;
 
 public class App
 {
@@ -15,6 +18,9 @@ public class App
         System.out.println(people.size());
         System.out.println(people.findById(1));
 
+        TodoItems todo = new TodoItems();
+        System.out.print("find by done status : ");
+        System.out.println(Arrays.toString(todo.findByDoneStatus(false)));
 
 
 

@@ -25,13 +25,13 @@ public class People {
         personarr[0] = new Person(1, "Simon","carlsson");
         personarr[1] = new Person(2, "Jim","jimsson");
 
-        if(personId == 1){
-           p = personarr[0];
+          if(personId==1){
+              return  personarr[0];
+          }
+        if(personId==2){
+            return personarr[1];
+        }
 
-        }
-        else if(personId == 2){
-            p = personarr[1];
-        }
       return p;
     }
     public Person addingPerson(Person p2){

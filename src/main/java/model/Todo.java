@@ -10,6 +10,15 @@ public class Todo {
         this.todoId = todoId;
         this.description = description;
     }
+    public Todo(int todoId){
+
+        this.todoId = todoId;
+    }
+
+    public Todo() {
+
+        todoId = 0;
+    }
 
     public int getTodoId() {
         return todoId;

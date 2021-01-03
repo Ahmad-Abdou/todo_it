@@ -34,4 +34,20 @@ public class TodoItemsTest {
         int actual = p.size();
         Assert.assertEquals(expected,actual);
     }
+    @Test
+    public void findByDoneStatus(boolean doneStatus){
+
+    }
+    @Test
+    public void findByAssignee(int personId){
+
+    }
+    @Test
+    public void findByAssignee(Person assignee){
+
+    }
+    @Test
+    public void findUnassignedTodoItems(){
+
+    }
 }
