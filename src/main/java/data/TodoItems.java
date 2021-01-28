@@ -3,86 +3,85 @@ package data;
 import model.Person;
 import model.Todo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class TodoItems {
-    private static Person[]  person = new Person [2];
+    private static Todo[] todo = new Todo[0];
 
     public TodoItems() {
     }
 
 
-    public int size(){
-        int arr []= new int [5];
-        int length = arr.length;
-        return length;
+    public int size() {
+        return todo.length;
     }
-    public Person[] findAll(){
-        Person [] person2 = new Person[1];
-        return person2;
+
+    public Todo[] findAll() {
+
+        return todo;
     }
-    public Person findById(int personId){
-        Person p = new Person();
-        Person[] personarr = new Person[2];
-        personarr[0] = new Person(1, "Simon","carlsson");
-        personarr[1] = new Person(2, "Jim","jimsson");
 
-        if(personId == 1){
-            p = personarr[0];
-
+    public Todo findById(int todoId) {
+        for (Todo done : todo) {
+            if (todoId == done.getTodoId()) {
+                return done;
+            }
         }
-        else if(personId == 2){
-            p = personarr[1];
+        return null;
+    }
+
+    public Todo addingTodo(Todo to2) {
+        Todo[] todoarr = Arrays.copyOf(todo, todo.length + 1);
+        todoarr[todoarr.length - 1] = to2;
+        todo = todoarr;
+        return to2;
+    }
+
+    public void clear() {
+        todo = new Todo[0];
+    }
+
+    public List<Todo> findByDoneStatus(boolean doneStatus) {
+        List<Todo> todos = new ArrayList<>();
+        for (Todo done : todo) {
+            if (doneStatus == done.isDone()) {
+                todos.add(done);
+            }
         }
-        return p;
-    }
-    public Person addingPerson(Person p2){
+        return todos;
 
-        return p2;
     }
-    public void clear (){
-    }
-    public Todo[] findByDoneStatus(boolean doneStatus){
-        Todo [] trueArr = new Todo[2];
-        Todo trueOutput = new Todo();
-        trueArr[0] = new Todo(1 , "done");
-        trueArr[1] = new Todo(2 , "done");
 
-        Todo [] falseArr = new Todo[2];
-        Todo falseOutput = new Todo();
-        falseArr[0] = new Todo(1,"Not done");
-        falseArr[0] = new Todo(2,"Not done");
-
-            if(doneStatus == true){
-                for(int i = 0 ; i < trueArr.length; i++){
-                    trueOutput =  trueArr[i];
-                }
-            return trueArr;
+    public List<Todo> findByAssignee(int todoId) {
+        List<Todo> todos = new ArrayList<>();
+        for (Todo done : todo) {
+            if (todoId == done.getTodoId()) {
+                todos.add(done);
+            }
         }
-        else if(doneStatus == false){
-                for(int i = 0 ; i < falseArr.length; i++){
-                    falseOutput =  falseArr[i];
-                }
-            return falseArr;
+        return todos;
+    }
+
+    public List<Todo> findByAssignee(Person assignee) {
+        List<Todo> todos = new ArrayList<>();
+        for (Todo done : todo) {
+            if (assignee == done.getAssignee()) {
+                todos.add(done);
+            }
         }
-
-        return  falseArr;
-    }
-    public Todo[] findByAssignee(int personId)   {
-
-        return new Todo[0];
+        return todos;
     }
 
-    public Todo[] findByAssignee(Person assignee){
-
-        return new Todo[0];
+    public List<Todo> findUnassignedTodoItems() {
+        List<Todo> todos = new ArrayList<>();
+        for (Todo done : todo) {
+            if (done.getAssignee() == null) {
+                todos.add(done);
+            }
+        }
+        return todos;
     }
-    public Todo[] findUnassignedTodoItems(){
-
-        return new Todo[0];
-    }
-
-
-
 
 }

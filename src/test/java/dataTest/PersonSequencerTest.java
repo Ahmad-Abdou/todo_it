@@ -9,7 +9,7 @@ public class PersonSequencerTest {
     @Test
     public void test_nextPersonId(){
         int expected = 3;
-        int actual = PersonSequencer.nextPersonId(2);
+        int actual = PersonSequencer.nextPersonId();
         Assert.assertEquals(expected,actual);
     }
     @Test

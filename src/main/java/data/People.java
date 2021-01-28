@@ -5,41 +5,39 @@ import model.Person;
 import java.util.Arrays;
 
 public class People {
-    private static Person []  person = new Person [2];
+    private static Person[] person = new Person[0];
+
 
     public People() {
     }
 
-    public int size(){
-       int arr []= new int [5];
-        int length = arr.length;
-        return length;
-    }
-    public Person[] findAll(){
-        Person [] person2 = new Person[1];
-        return person2;
-    }
-    public Person findById(int personId){
-        Person p = new Person();
-        Person[] personarr = new Person[2];
-        personarr[0] = new Person(1, "Simon","carlsson");
-        personarr[1] = new Person(2, "Jim","jimsson");
+    public int size() {
 
-          if(personId==1){
-              return  personarr[0];
-          }
-        if(personId==2){
-            return personarr[1];
+        return person.length;
+    }
+
+    public Person[] findAll() {
+
+        return person;
+    }
+
+    public Person findById(int personId) {
+        for (Person p2 : person) {
+            if (personId == p2.getPersonId()) {
+                return p2;
+            }
         }
-
-      return p;
+        return null;
     }
-    public Person addingPerson(Person p2){
 
+    public Person addingPerson(Person p2) {
+        Person[] newarr = Arrays.copyOf(person, person.length + 1);
+        newarr[newarr.length - 1] = p2;
+        person = newarr;
         return p2;
     }
     public void clear (){
 
-
+        person = new Person[0];
     }
 }

@@ -2,7 +2,8 @@ package data;
 
 public class TodoItemsANDPeople {
 
-    public void remove(){
+    public void remove(int index) {
+
 
     }
 

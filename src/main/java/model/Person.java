@@ -1,20 +1,23 @@
 package model;
 
+import data.PersonSequencer;
+
+import java.util.Objects;
+
 public class Person {
-    final int personId ;
+    final int personId;
     String firstName;
     String LastName;
 
- 
 
-    public Person(int personId, String firstName, String lastName) {
-        this.personId = personId;
+    public Person(String firstName, String lastName) {
+        this.personId = PersonSequencer.nextPersonId();
         this.firstName = firstName;
         this.LastName = lastName;
     }
 
     public Person() {
-        personId = 0;
+        personId = PersonSequencer.nextPersonId();
     }
 
 
@@ -36,5 +39,27 @@ public class Person {
 
     public void setLastName(String lastName) {
         LastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "personId=" + personId +
+                ", firstName='" + firstName + '\'' +
+                ", LastName='" + LastName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return personId == person.personId && Objects.equals(firstName, person.firstName) && Objects.equals(LastName, person.LastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(personId, firstName, LastName);
     }
 }

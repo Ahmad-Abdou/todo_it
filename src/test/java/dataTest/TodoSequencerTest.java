@@ -9,7 +9,7 @@ public class TodoSequencerTest {
     @Test
     public void test_nextPersonId(){
         int expected = 3;
-        int actual = TodoSequencer.nextPersonId2(2);
+        int actual = TodoSequencer.nextPersonId2();
         Assert.assertEquals(expected,actual);
     }
     @Test
