@@ -3,6 +3,7 @@ package se.lexicon.AhmadAbdou;
 import data.People;
 import data.PersonSequencer;
 import data.TodoItems;
+import data.TodoItemsANDPeople;
 import model.Person;
 import model.Todo;
 
@@ -43,6 +44,9 @@ public class App
         System.out.println("Find by assignee todoID "+ todoitems.findByAssignee(1));
         System.out.println("Find by assignee Person "+ todoitems.findByAssignee(p2));
         System.out.println("Find by unassigned Person "+ todoitems.findUnassignedTodoItems());
+        TodoItemsANDPeople todo = new TodoItemsANDPeople();
+        System.out.print("The new array after removing object of ID 2 : ");
+        System.out.println(todo.remove(2));
 
 
     }
